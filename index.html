@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zxaok — Link Hub</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: #1e1e1e;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .left-column, .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        /* Профиль */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: #252525;
+            padding: 16px;
+            border-radius: 12px;
+            transition: 0.3s ease;
+        }
+        .profile-header:hover {
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
+        }
+        .avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ffcc00;
+            transition: 0.3s ease;
+        }
+        .avatar:hover {
+            box-shadow: 0 0 15px #ffcc00;
+        }
+        .nickname {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffcc00;
+            text-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
+        }
+        /* Большой блок репозиториев */
+        .repos-box {
+            background: #252525;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+            transition: 0.3s ease;
+        }
+        .repos-box:hover {
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.15);
+        }
+        .repos-box h3 {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 4px;
+        }
+        /* Кнопки и ссылки со свечением */
+        .btn {
+            display: block;
+            background: #2c2c2c;
+            color: #ffffff;
+            text-align: center;
+            padding: 12px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid #3d3d3d;
+        }
+        .btn:hover {
+            background: #ffcc00;
+            color: #121212;
+            border-color: #ffcc00;
+            /* Эффект неонового свечения при наведении */
+            box-shadow: 0 0 15px #ffcc00, 0 0 30px rgba(255, 204, 0, 0.5);
+            transform: translateY(-2px);
+        }
+        /* Картинка телефона справа */
+        .phone-banner {
+            background: #252525;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px;
+            transition: 0.3s ease;
+        }
+        .phone-banner:hover {
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.2);
+        }
+        .phone-banner img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .phone-banner p {
+            font-size: 14px;
+            color: #aaa;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Левая колонка: Аватар, ник + блок репозиториев -->
+        <div class="left-column">
+            <div class="profile-header">
+                <img src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7321045236712398853~c5_720x720.jpeg?lk3s=a5d48078&nonce=76785&refresh_token=0d71a1c9704ec5e8b61e27eb845a947c&x-expires=1772978400&x-signature=N2aDk%2Fh%2FG7%2B2hN35p63E4y4l84Q%3D&shp=a5d48078&shcp=81f88b70" alt="Avatar" class="avatar">
+                <div class="nickname">Zxaok</div>
+            </div>
+
+            <div class="repos-box">
+                <h3>Мои репозитории</h3>
+                <a href="https://github.com/zxaoksdn" class="btn" target="_blank">GitHub Профиль</a>
+                <a href="https://github.com/zxaoksdn/ZNAggregator" class="btn" target="_blank">ZNAggregator (Проект)</a>
+            </div>
+        </div>
+
+        <!-- Правая колонка: Все соцсети + фото телефона -->
+        <div class="right-column">
+            <a href="https://t.me/imzxaok" class="btn" target="_blank">Telegram (@imzxaok)</a>
+            <a href="https://youtube.com/@zxaoksdn?si=2ujspUN_LuaqC2mB" class="btn" target="_blank">YouTube канал 1</a>
+            <a href="https://youtube.com/@sdnzxaok?si=LlAXQh64jkHYD7ln" class="btn" target="_blank">YouTube канал 2</a>
+            <a href="https://www.tiktok.com/@imzxaok?_r=1&_t=ZS-99Ti28mZeGg" class="btn" target="_blank">TikTok 1</a>
+            <a href="https://www.tiktok.com/@sdnzxaok?_r=1&_t=ZS-99Ti3bzmb4M" class="btn" target="_blank">TikTok 2</a>
+            <a href="https://discord.gg/ZnJu6bTkEX" class="btn" target="_blank">Discord Сервер</a>
+            <a href="https://open.spotify.com/playlist/7nGkhNqY4iYQzxqgEJ5mji?si=jR6-KPQ7Sr6TSPFDHyM_5A&utm_source=copy-link&pi=MuqR2lPNQymrd" class="btn" target="_blank">Spotify Плейлист</a>
+            <a href="https://www.instagram.com/zxa0k?igsi=MTl1ejkzbWFqcHViZg==" class="btn" target="_blank">Instagram</a>
+            <a href="https://steamcommunity.com/id/Zxaok/" class="btn" target="_blank">Steam</a>
+            <a href="https://ru.ddnet.org/players/Zxaok/" class="btn" target="_blank">DDNet Профиль</a>
+            <a href="https://pin.it/7vHehsYkO" class="btn" target="_blank">Pinterest</a>
+
+            <!-- Блок с фото телефона -->
+            <div class="phone-banner">
+                <img src="https://avatars.mds.yandex.net/i?id=8e68cf0e137b791e847c527e7d971557_l-5235889-images-thumbs&n=13" alt="Infinix Hot 60 Pro">
+                <p>Infinix Hot 60 Pro (Топка!)</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
