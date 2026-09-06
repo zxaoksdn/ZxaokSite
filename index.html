@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+                <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -11,69 +11,156 @@
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
         body {
-            background-color: #121212;
+            background-color: #0d0d0d;
             color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+            overflow-y: auto;
         }
+
+        /* Динамический переливающийся фон с фиолетовыми оттенками (#A855F7) */
+        .background-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: linear-gradient(135deg, #0d0d0d, #1a0b2e, #0d0d0d);
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.5;
+            border-radius: 50%;
+            animation: floatBlob 10s ease-in-out infinite alternate;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: #A855F7;
+            top: -100px;
+            left: -100px;
+            animation-duration: 12s;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: #7928CA;
+            bottom: -150px;
+            right: -150px;
+            animation-duration: 15s;
+            animation-direction: alternate-reverse;
+        }
+
+        .blob-3 {
+            width: 300px;
+            height: 300px;
+            background: #C084FC;
+            top: 40%;
+            left: 60%;
+            animation-duration: 9s;
+        }
+
+        @keyframes floatBlob {
+            0% {
+                transform: translate(0px, 0px) scale(1);
+            }
+            50% {
+                transform: translate(50px, 80px) scale(1.1);
+            }
+            100% {
+                transform: translate(-30px, 50px) scale(0.95);
+            }
+        }
+
+        /* Анимация появления и поднятия вверх для контейнера */
+        @keyframes slideUpFade {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .container {
             width: 100%;
             max-width: 900px;
-            background: #1e1e1e;
+            background: rgba(30, 30, 30, 0.85); /* Легкая прозрачность, чтобы фон слегка проступал */
+            backdrop-filter: blur(10px); /* Размытие подложки для красивого эффекта */
+            border: 1px solid rgba(168, 85, 247, 0.2);
             border-radius: 16px;
             padding: 24px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 20px rgba(168, 85, 247, 0.15);
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
+            z-index: 1;
+            
+            /* Применяем анимацию появления */
+            animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
+
         @media (max-width: 768px) {
             .container {
                 grid-template-columns: 1fr;
             }
         }
+
         .left-column, .right-column {
             display: flex;
             flex-direction: column;
             gap: 16px;
         }
+
         /* Профиль */
         .profile-header {
             display: flex;
             align-items: center;
             gap: 16px;
-            background: #252525;
+            background: rgba(37, 37, 37, 0.9);
             padding: 16px;
             border-radius: 12px;
             transition: 0.3s ease;
         }
         .profile-header:hover {
-            box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
         }
         .avatar {
             width: 70px;
             height: 70px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #ffcc00;
+            border: 2px solid #A855F7;
             transition: 0.3s ease;
         }
         .avatar:hover {
-            box-shadow: 0 0 15px #ffcc00;
+            box-shadow: 0 0 20px #A855F7;
         }
         .nickname {
             font-size: 24px;
             font-weight: bold;
-            color: #ffcc00;
-            text-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
+            color: #A855F7;
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
         }
+
         /* Большой блок репозиториев */
         .repos-box {
-            background: #252525;
+            background: rgba(37, 37, 37, 0.9);
             border-radius: 12px;
             padding: 20px;
             display: flex;
@@ -83,17 +170,18 @@
             transition: 0.3s ease;
         }
         .repos-box:hover {
-            box-shadow: 0 0 15px rgba(255, 204, 0, 0.15);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
         }
         .repos-box h3 {
             font-size: 18px;
             color: #ccc;
             margin-bottom: 4px;
         }
+
         /* Кнопки и ссылки со свечением */
         .btn {
             display: block;
-            background: #2c2c2c;
+            background: rgba(44, 44, 44, 0.9);
             color: #ffffff;
             text-align: center;
             padding: 12px 16px;
@@ -101,19 +189,19 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: 1px solid #3d3d3d;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         .btn:hover {
-            background: #ffcc00;
-            color: #121212;
-            border-color: #ffcc00;
-            /* Эффект неонового свечения при наведении */
-            box-shadow: 0 0 15px #ffcc00, 0 0 30px rgba(255, 204, 0, 0.5);
+            background: #A855F7;
+            color: #ffffff;
+            border-color: #A855F7;
+            box-shadow: 0 0 20px #A855F7, 0 0 35px rgba(168, 85, 247, 0.5);
             transform: translateY(-2px);
         }
+
         /* Картинка телефона справа */
         .phone-banner {
-            background: #252525;
+            background: rgba(37, 37, 37, 0.9);
             border-radius: 12px;
             overflow: hidden;
             text-align: center;
@@ -121,7 +209,7 @@
             transition: 0.3s ease;
         }
         .phone-banner:hover {
-            box-shadow: 0 0 15px rgba(255, 204, 0, 0.2);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
         }
         .phone-banner img {
             width: 100%;
@@ -137,6 +225,13 @@
     </style>
 </head>
 <body>
+
+    <!-- Переливающийся фиолетовый фон сзади -->
+    <div class="background-glow">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
 
     <div class="container">
         <!-- Левая колонка: Аватар, ник + блок репозиториев -->
@@ -180,5 +275,3 @@
 
 </body>
 </html>
-
-
